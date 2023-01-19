@@ -7,7 +7,8 @@ function SushiBlock({ title, price, imageUrl, sizes, types}) {
   const typeNames = ['spicy', 'traditional'];
 
     return (
-        <div className="sushi-block">
+        <div className="sushi-block-wrapper">
+          <div className="sushi-block">
             <img
               className="sushi-block__image"
               src={imageUrl}
@@ -50,6 +51,7 @@ function SushiBlock({ title, price, imageUrl, sizes, types}) {
                 </button>
               </div>
           </div> 
+        </div>
     )
 }
 

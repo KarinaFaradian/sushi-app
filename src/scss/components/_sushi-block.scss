@@ -5,8 +5,19 @@
   text-align: center;
   margin-bottom: 65px;
 
-  &:not(:nth-of-type(4n)) {
-    margin-right: 35px;
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 400px) {
+      .sushi-block {
+        width: 220px;
+
+        &__image {
+          width: 210px;
+        }
+      }
+    }
   }
 
   &__image {
@@ -31,10 +42,6 @@
     ul {
       display: flex;
       flex: 1;
-
-      &:first-of-type {
-        margin-bottom: 6px;
-      }
 
       li {
         padding: 8px;
