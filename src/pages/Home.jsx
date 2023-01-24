@@ -4,7 +4,7 @@ import Sort from '../components/Sort';
 import Skeleton from '../components/SushiBlock/Skeleton';
 import SushiBlock from '../components/SushiBlock';
 
-const Home = () => {
+const Home = ( {searchValue} ) => {
 
     const [items, setItems] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
@@ -16,9 +16,13 @@ const Home = () => {
 
     React.useEffect(() => {
       setIsLoading(true);
+
+      const search = searchValue ? `&search=${searchValue}` : '';
+
+      
         fetch(`https://63c8592d5c0760f69aca662f.mockapi.io/Items?${
           categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${
-          sortType.sortProperty}&order=desc`
+          sortType.sortProperty}&order=desc${search}`
         )
         .then((res) => res.json())
         .then((json) => {
@@ -26,7 +30,13 @@ const Home = () => {
         setIsLoading(false);
         });
         window.scrollTo(0, 0);
-    }, [categoryId, sortType]) 
+    }, [categoryId, sortType, searchValue]) 
+
+    const sushis = items.map((obj) => (
+      <SushiBlock key={obj.id} {...obj} />
+    ));
+
+    const skeletons = [...new Array(9)].map((_, i) => <Skeleton key={i} />);
 
   return (
     <div className="container">
@@ -38,10 +48,8 @@ const Home = () => {
         <div className="content__items">
           {
             isLoading 
-            ? [...new Array(9)].map((_, i) => <Skeleton key={i} />) 
-            : items.map((obj) => (
-              <SushiBlock key={obj.id} {...obj} />
-            ))
+            ? skeletons
+            : sushis
           }
         </div>
     </div>

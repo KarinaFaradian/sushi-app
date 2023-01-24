@@ -2,7 +2,7 @@
 
 .header {
   border-bottom: 1px solid $gray-line;
-  padding: 40px 0;
+  padding: 40px 0 0 0;
   background-color: $background;
 
   .container {
@@ -13,10 +13,15 @@
     @media (max-width: 530px) {
       flex-direction: column;
 
-      .header__cart {
-        margin-top: 20px;
+      .header__logo {
+        margin-bottom: 20px;
       }
     }
+  }
+
+  &__search {
+    margin: 20px;
+  
   }
 
   &__logo {

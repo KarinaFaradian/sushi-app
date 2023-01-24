@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import logoSvg from '../assets/img/sushi-logo.svg';
-
-function Header() {
+import Search from './Search';
+function Header({ searchValue, setSearchValue }) {
     return (
       <div className="header">
           <div className="container">
@@ -51,6 +51,9 @@ function Header() {
                 <span>3</span>
               </Link>
             </div>
+          </div>
+          <div className='header__search'>
+          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
           </div>
         </div>
     )
