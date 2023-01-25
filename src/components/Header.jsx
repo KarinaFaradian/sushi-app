@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import logoSvg from '../assets/img/sushi-logo.svg';
 import Search from './Search';
-function Header({ searchValue, setSearchValue }) {
+function Header() {
     return (
       <div className="header">
           <div className="container">
@@ -10,7 +10,7 @@ function Header({ searchValue, setSearchValue }) {
               <div className="header__logo">
                 <img width="38" src={logoSvg} alt="Sushi logo" />
                 <div>
-                  <h1>React Sushi</h1>
+                  <h1>Sushi Smart</h1>
                   <p>the best sushi ever</p>
                 </div>
               </div>
@@ -53,7 +53,7 @@ function Header({ searchValue, setSearchValue }) {
             </div>
           </div>
           <div className='header__search'>
-          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+          <Search />
           </div>
         </div>
     )

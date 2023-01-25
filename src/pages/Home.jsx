@@ -6,9 +6,10 @@ import Sort from '../components/Sort';
 import Skeleton from '../components/SushiBlock/Skeleton';
 import SushiBlock from '../components/SushiBlock';
 import Pagination from '../components/Pagination';
+import { SearchContext } from '../App';
 
-const Home = ( {searchValue} ) => {
-
+const Home = () => {
+    const {searchValue} = React.useContext(SearchContext);
     const [items, setItems] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
     const [categoryId, setCategoryId] = React.useState(0);
