@@ -44,9 +44,12 @@ const Home = () => {
 
     const sushis = items.map((obj) => (
       <SushiBlock key={obj.id} {...obj} />
-    ));
+  ));
 
-    const skeletons = [...new Array(9)].map((_, i) => <Skeleton key={i} />);
+  
+
+
+  const skeletons = [...new Array(9)].map((_, i) => <Skeleton key={i} />);
 
   return (
     <div className="container">
