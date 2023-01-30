@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'; 
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -12,8 +13,7 @@ import { setCategoryId } from '../redux/slices/filterSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const categoryId = useSelector((state) => state.filter.categoryId);
-  const sortType = useSelector((state) => state.filter.sort.sortProperty);
+  const { categoryId, sort } = useSelector((state) => state.filter);
 
     const {searchValue} = React.useContext(SearchContext);
     const [items, setItems] = React.useState([]);
@@ -24,22 +24,20 @@ const Home = () => {
       dispatch(setCategoryId(id));
     }
 
-    React.useEffect(() => {
-      setIsLoading(true);
+  React.useEffect(() => {
+    setIsLoading(true);
+    const search = searchValue ? `&search=${searchValue}` : '';
 
-      const search = searchValue ? `&search=${searchValue}` : '';
-
-      
-        fetch(`https://63c8592d5c0760f69aca662f.mockapi.io/Items?page=${currentPage}&limit=6&${
-          categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${
-          sortType}&order=desc${search}`)
-        .then((res) => res.json())
-        .then((json) => {
-        setItems(json);
+    axios.get(`https://63c8592d5c0760f69aca662f.mockapi.io/Items?page=${currentPage}&limit=6&${
+      categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${
+      sort.sortProperty}&order=desc${search}`)
+      .then(((res) => {
+        setItems(res.data);
         setIsLoading(false);
-        });
+      }))
+
         window.scrollTo(0, 0);
-    }, [categoryId, sortType, searchValue, currentPage]) 
+        }, [categoryId, sort.sortProperty, searchValue, currentPage]) 
 
     const sushis = items.map((obj) => (
       <SushiBlock key={obj.id} {...obj} />
