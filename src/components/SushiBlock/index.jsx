@@ -52,7 +52,7 @@ function SushiBlock({ id, title, price, imageUrl, sizes, types}) {
                 </ul>
               </div>
               <div className="sushi-block__bottom">
-                <div className="sushi-block__price">from {price} $</div>
+                <div className="sushi-block__price">from {price}$</div>
                 <button onClick={onClickAdd} className="button button--outline button--add">
                   <svg
                     width="12"
