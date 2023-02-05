@@ -46,8 +46,6 @@ const Home = () => {
       <SushiBlock key={obj.id} {...obj} />
   ));
 
-  
-
 
   const skeletons = [...new Array(9)].map((_, i) => <Skeleton key={i} />);
 

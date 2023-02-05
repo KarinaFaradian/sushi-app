@@ -3,41 +3,44 @@ import { useDispatch } from 'react-redux';
 
 import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
 
-const CartItem = ({id, title, type, size, price, count, imageUrl}) => {
+const CartItem = ({ id, title, type, size, price, count, imageUrl }) => {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
-    dispatch(addItem({
-      id
-    }))
+    dispatch(
+      addItem({
+        id,
+      }),
+    );
   };
 
   const onClickMinus = () => {
-    dispatch(minusItem(id))
+    dispatch(minusItem(id));
   };
 
-  const onClickRemove= () => {
+  const onClickRemove = () => {
     if (window.confirm('Are you sure you want to remove?')) {
-      dispatch(removeItem(id))
+      dispatch(removeItem(id));
     }
-  }
-
+  };
 
   return (
     <div className="cart__item">
-      <div className="cart__item-img">
-        <img
-          className="sushi-block__image"
-          src={imageUrl}
-          alt="sushi"
-        />
-      </div>
-      <div className="cart__item-info">
-        <h3>{title}</h3>
-        <p>{type}, {size} pieces.</p>
+      <div className="cart__list">
+        <div className="cart__item-img">
+          <img className="sushi-block__image" src={imageUrl} alt="sushi" />
+        </div>
+        <div className="cart__item-info">
+          <h3>{title}</h3>
+          <p>
+            {type}, {size} pieces.
+          </p>
+        </div>
       </div>
       <div className="cart__item-count">
-        <button onClick={onClickMinus} className="button button--outline button--circle cart__item-count-minus">
+        <button
+          onClick={onClickMinus}
+          className="button button--outline button--circle cart__item-count-minus">
           <svg
             width="10"
             height="10"
@@ -54,8 +57,12 @@ const CartItem = ({id, title, type, size, price, count, imageUrl}) => {
             />
           </svg>
         </button>
-        <b>{count}</b>
-        <button onClick={onClickPlus} className="button button--outline button--circle cart__item-count-plus">
+        <b>
+          {count}
+          </b>
+        <button
+          onClick={onClickPlus}
+          className="button button--outline button--circle cart__item-count-plus">
           <svg
             width="10"
             height="10"

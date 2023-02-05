@@ -146,17 +146,29 @@ body {
     display: block;
   }
 
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+   
+
+    @media (max-width: 650px) {
+      flex-direction: column;
+    }
+  }
+
   &__item {
     display: flex;
     width: 100%;
     border-top: 1px solid $gray-line;
-    padding-top: 30px;
-    margin-top: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+   
 
     &-img {
       display: flex;
       align-items: center;
-      margin-right: 15px;
+  
       width: 10%;
 
       img {
@@ -169,7 +181,9 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 40%;
+      width: 60%;
+
+     
 
       h3 {
         font-weight: bold;
@@ -188,8 +202,8 @@ body {
     &-count {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      width: 13%;
+      justify-content: space-around;
+      width: 30%;
 
       &-minus {
         svg {
@@ -209,7 +223,7 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 33%;
+      width: 25%;
 
       b {
         font-weight: bold;
@@ -223,7 +237,7 @@ body {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      width: 4%;
+      width: 10%;
 
       .button {
         border-color: darken($color: $gray-line, $amount: 10);
@@ -258,8 +272,15 @@ body {
     &-details {
       display: flex;
       justify-content: space-between;
+
+      @media (max-width: 500px) {
+        flex-direction: column;
+      }
+
       span {
         font-size: 22px;
+        
+        
 
         &:first-of-type {
           color: $background;
@@ -282,11 +303,16 @@ body {
       justify-content: space-between;
       margin-top: 40px;
 
+
       .go-back-btn {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 210px;
+
+        @media (max-width: 500px) {
+        width: 150px;
+        }
 
         border-color: darken($color: $black, $amount: 10);
 
@@ -320,6 +346,10 @@ body {
         font-weight: 600;
         width: 210px;
         padding: 16px;
+
+        @media (max-width: 500px) {
+          width: 150px;
+          }
       }
     }
   }
@@ -328,6 +358,9 @@ body {
     margin: 60px auto;
     width: 560px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 80px);
 
     h2 {
       font-size: 32px;
@@ -351,6 +384,11 @@ body {
       display: block;
       width: 300px;
       margin: 45px auto 60px;
+
+      @media (max-width: 400px) {
+        width: 200px;
+        }
+      
     }
 
     .button--white {
@@ -360,6 +398,10 @@ body {
       font-weight: 600;
       font-size: 18px;
       background-color: $background;
+
+      @media (max-width: 400px) {
+        width: 200px;
+        }
     }
 
     .button--text {
