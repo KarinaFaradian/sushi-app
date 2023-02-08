@@ -7,17 +7,14 @@ import Sort from '../components/Sort';
 import Skeleton from '../components/SushiBlock/Skeleton';
 import SushiBlock from '../components/SushiBlock';
 import Pagination from '../components/Pagination';
-import { SearchContext } from '../App';
 import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
 import { fetchSushi } from '../redux/slices/sushiSlice';
 import NotFound from './NotFound';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
+  const { categoryId, sort, currentPage, searchValue } = useSelector((state) => state.filter);
   const { items, status } = useSelector((state) => state.sushi);
-
-  const { searchValue } = React.useContext(SearchContext);
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
