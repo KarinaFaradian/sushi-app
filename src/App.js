@@ -13,7 +13,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route path="" element={<Home />} />
+        <Route path="sushi-app/" element={<Home />} />
         <Route path="cart" element={<Cart />} />
         <Route path="sushi/:id" element={<FullSushi />} />
         <Route path="*" element={<NotFound />} />

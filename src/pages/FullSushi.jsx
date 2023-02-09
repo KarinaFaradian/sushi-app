@@ -23,6 +23,7 @@ const FullSushi = () => {
   if (!sushi) {
     return 'Loading...';
   }
+  
 
   return (
     <div className="container">
@@ -31,7 +32,7 @@ const FullSushi = () => {
       <p className="sushi-block__composition">{sushi.composition}</p>
       <h4 className="sushi-block__price">{sushi.price} $</h4>
       <div className="cart__bottom-buttons">
-        <Link to="/">
+        <Link to="/sushi-app">
           <button className="button button--outline button--add go-back-btn">
             <svg
               width="8"
