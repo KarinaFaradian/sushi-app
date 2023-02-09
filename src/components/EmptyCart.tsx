@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import emptyCartIcon from '../assets/img/empty-cart.png';
 
-const EmptyCart = () => {
+const EmptyCart: React.FC = () => {
   return (
     <>
       <div className="cart cart--empty">
         <h2>
-          This cart is empty <icon>😕</icon>
+          This cart is empty <span>😕</span>
         </h2>
         <p>
           It seem like you had never made an order.

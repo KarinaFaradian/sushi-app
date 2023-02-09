@@ -2,8 +2,13 @@ import axios from 'axios';
 import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
-const FullSushi = () => {
-  const [sushi, setSushi] = React.useState();
+const FullSushi: React.FC = () => {
+  const [sushi, setSushi] = React.useState<{
+    imageUrl: string,
+    title: string,
+    composition: string,
+    price: number
+  }>();
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -21,7 +26,7 @@ const FullSushi = () => {
   }, [id]);
 
   if (!sushi) {
-    return 'Loading...';
+    return <h4>Loading...</h4>;
   }
   
 

@@ -6,20 +6,20 @@ import Sort from '../components/Sort';
 import Skeleton from '../components/SushiBlock/Skeleton';
 import SushiBlock from '../components/SushiBlock';
 import Pagination from '../components/Pagination';
-import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
-import { fetchSushi } from '../redux/slices/sushiSlice';
+import { selectFilter, setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
+import { fetchSushi, selectSushi } from '../redux/slices/sushiSlice';
 import NotFound from './NotFound';
 
-const Home = () => {
+const Home: React.FC = () => {
   const dispatch = useDispatch();
-  const { categoryId, sort, currentPage, searchValue } = useSelector((state) => state.filter);
-  const { items, status } = useSelector((state) => state.sushi);
+  const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
+  const { items, status } = useSelector(selectSushi);
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
-  const onChangePage = (page) => {
+  const onChangePage = (page: number) => {
     dispatch(setCurrentPage(page));
   };
 
@@ -27,6 +27,7 @@ const Home = () => {
     const search = searchValue ? `&search=${searchValue}` : '';
 
     dispatch(
+      // @ts-ignore
       fetchSushi({
         search,
         categoryId,
@@ -40,9 +41,11 @@ const Home = () => {
     getSushi();
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  const sushis = items.map((obj) => <SushiBlock key={obj.id} {...obj} />);
+  const sushis = items.map((obj: any) => <SushiBlock key={obj.id} {...obj} />);
 
-  const skeletons = [...new Array(9)].map((_, i) => <Skeleton key={i} />);
+  const skeletons = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
+
+  console.log(status)
 
   return (
     <div className="container">

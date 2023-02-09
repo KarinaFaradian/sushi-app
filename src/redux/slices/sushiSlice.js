@@ -26,7 +26,7 @@ const sushiSlice = createSlice({
   },
   extraReducers: {
     [fetchSushi.pending]: (state) => {
-      state.status = 'loadiing';
+      state.status = 'loading';
       state.items = [];
     },
     [fetchSushi.fulfilled]: (state, action) => {
@@ -39,6 +39,8 @@ const sushiSlice = createSlice({
     }
   }
 });
+
+export const selectSushi = (state) => state.sushi;
 
 export const { setItems } = sushiSlice.actions;
 
