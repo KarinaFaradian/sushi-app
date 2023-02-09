@@ -43,6 +43,7 @@ const cartSlice = createSlice({
         return obj.price * obj.count + sum;
       }, 0);
       }
+      state.items = state.items.filter((obj) => obj.count !== 0)
     },
   },
 });
