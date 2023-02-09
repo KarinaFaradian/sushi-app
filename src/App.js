@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Header from './components/Header';
+import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import FullSushi from './pages/FullSushi';
@@ -11,17 +11,14 @@ import './scss/app.scss';
 
 function App() {
   return (
-    <div className="wrapper">
-      <Header />
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path='/sushi/:id' element={<FullSushi />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route path="" element={<Home />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="sushi/:id" element={<FullSushi />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 
