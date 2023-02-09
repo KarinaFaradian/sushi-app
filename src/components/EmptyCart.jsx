@@ -16,7 +16,7 @@ const EmptyCart = () => {
           Go to the main page to make an order.
         </p>
         <img src={emptyCartIcon} alt="Empty cart" />
-        <Link to="/" className="button button--white">
+        <Link to="/sushi-app" className="button button--white">
           <span className='button--text'>Come back</span>
         </Link>
       </div>
