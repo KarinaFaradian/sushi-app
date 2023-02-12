@@ -17,7 +17,7 @@ const EmptyCart: React.FC = () => {
         </p>
         <img src={emptyCartIcon} alt="Empty cart" />
         <Link to="/sushi-app" className="button button--white">
-          <span className='button--text'>Come back</span>
+          <span className="button--text">Come back</span>
         </Link>
       </div>
     </>

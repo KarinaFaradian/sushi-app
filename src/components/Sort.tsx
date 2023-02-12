@@ -1,17 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectSort, setSort } from '../redux/slices/filterSlice';
+import { selectSort, setSort, Sorting } from '../redux/slices/filterSlice';
 
 type SortItems = {
   name: string;
-  sortProperty: string;
+  sortProperty: Sorting;
 };
 
 const sortList: SortItems[] = [
-  { name: 'popurality', sortProperty: 'rating' },
-  { name: 'price', sortProperty: 'price' },
-  { name: 'alphabet', sortProperty: 'title' },
+  { name: 'popurality', sortProperty: Sorting.RATING },
+  { name: 'price', sortProperty: Sorting.PRICE },
+  { name: 'alphabet', sortProperty: Sorting.TITLE },
 ];
 
 function Sort() {

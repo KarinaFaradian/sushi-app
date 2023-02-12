@@ -4,10 +4,10 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 
 const FullSushi: React.FC = () => {
   const [sushi, setSushi] = React.useState<{
-    imageUrl: string,
-    title: string,
-    composition: string,
-    price: number
+    imageUrl: string;
+    title: string;
+    composition: string;
+    price: number;
   }>();
   const navigate = useNavigate();
   const { id } = useParams();
@@ -28,7 +28,6 @@ const FullSushi: React.FC = () => {
   if (!sushi) {
     return <h4>Loading...</h4>;
   }
-  
 
   return (
     <div className="container">

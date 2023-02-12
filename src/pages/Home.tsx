@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
@@ -9,9 +9,10 @@ import Pagination from '../components/Pagination';
 import { selectFilter, setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
 import { fetchSushi, selectSushi } from '../redux/slices/sushiSlice';
 import NotFound from './NotFound';
+import { useAppDispatch } from '../redux/store';
 
 const Home: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
   const { items, status } = useSelector(selectSushi);
 
@@ -25,14 +26,14 @@ const Home: React.FC = () => {
 
   const getSushi = async () => {
     const search = searchValue ? `&search=${searchValue}` : '';
+    const sortBy = sort.sortProperty;
 
     dispatch(
-      // @ts-ignore
       fetchSushi({
         search,
         categoryId,
         currentPage,
-        sort,
+        sortBy,
       }),
     );
   };
@@ -44,8 +45,6 @@ const Home: React.FC = () => {
   const sushis = items.map((obj: any) => <SushiBlock key={obj.id} {...obj} />);
 
   const skeletons = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
-
-  console.log(status)
 
   return (
     <div className="container">

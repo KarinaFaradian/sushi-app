@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addItem, selectCartItemById } from '../../redux/slices/cartSlice';
+import { addItem, CartItem, selectCartItemById } from '../../redux/slices/cartSlice';
 
 const typeNames = ['spicy', 'traditional'];
 
@@ -13,7 +13,7 @@ type SushiBlockProps = {
   imageUrl: string;
   sizes: number[];
   types: number[];
-}
+};
 
 const SushiBlock: React.FC<SushiBlockProps> = ({ id, title, price, imageUrl, sizes, types }) => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const SushiBlock: React.FC<SushiBlockProps> = ({ id, title, price, imageUrl, siz
   const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAdd = () => {
-    const item = {
+    const item: CartItem = {
       id,
       title,
       price,
@@ -36,13 +36,12 @@ const SushiBlock: React.FC<SushiBlockProps> = ({ id, title, price, imageUrl, siz
     dispatch(addItem(item));
   };
 
-  
   return (
     <div className="sushi-block-wrapper">
       <div className="sushi-block">
-      <Link to={`/sushi/${id}`} >
-        <img className="sushi-block__image" src={imageUrl} alt="Sushi" />
-        <h4 className="sushi-block__title">{title}</h4>
+        <Link to={`/sushi/${id}`}>
+          <img className="sushi-block__image" src={imageUrl} alt="Sushi" />
+          <h4 className="sushi-block__title">{title}</h4>
         </Link>
         <div className="sushi-block__selector">
           <ul>
@@ -87,6 +86,6 @@ const SushiBlock: React.FC<SushiBlockProps> = ({ id, title, price, imageUrl, siz
       </div>
     </div>
   );
-}
+};
 
 export default SushiBlock;
