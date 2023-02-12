@@ -16,7 +16,7 @@ body {
   max-width: 1400px;
 
   @media (max-width: 700px) {
-    width: calc(100vw - 20px)
+    width: calc(100vw - 20px);
   }
 }
 
@@ -26,26 +26,25 @@ body {
   &__title {
     margin: 35px 0;
     color: $background;
-
   }
 
   &__items {
-      display: grid; 
-      grid-template-columns: repeat(4, 1fr); 
-      grid-template-rows: repeat(2, 1fr); 
-      grid-column-gap: 11px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 11px;
 
-      @media (max-width: 1400px) {
-        grid-template-columns: repeat(3, 1fr); 
-      }
+    @media (max-width: 1400px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
-      @media (max-width: 1060px) {
-        grid-template-columns: repeat(2, 1fr); 
-      }
+    @media (max-width: 1060px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
-      @media (max-width: 730px) {
-        grid-template-columns: repeat(1, 1fr); 
-      }
+    @media (max-width: 730px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__top {
@@ -58,7 +57,7 @@ body {
 
       .categories {
         margin-top: 30px;
-       
+
         ul {
           display: flex;
           flex-wrap: wrap;
@@ -79,8 +78,6 @@ body {
   &--cart {
     max-width: 820px;
     margin: 90px auto;
-
-    
   }
 }
 
@@ -103,7 +100,7 @@ body {
       width: 30px;
       height: 30px;
       margin-right: 10px;
-     
+
       path {
         stroke: $background;
         stroke-width: 1.9;
@@ -150,7 +147,6 @@ body {
     display: flex;
     justify-content: space-between;
     width: 35%;
-   
 
     @media (max-width: 650px) {
       flex-direction: column;
@@ -163,12 +159,11 @@ body {
     border-top: 1px solid $gray-line;
     padding-top: 15px;
     padding-bottom: 15px;
-   
 
     &-img {
       display: flex;
       align-items: center;
-  
+
       width: 10%;
 
       img {
@@ -182,8 +177,6 @@ body {
       flex-direction: column;
       justify-content: center;
       width: 60%;
-
-     
 
       h3 {
         font-weight: bold;
@@ -210,6 +203,11 @@ body {
           path:first-of-type {
             display: none;
           }
+        }
+
+        &:disabled {
+         pointer-events: none;
+         opacity: .3;
         }
       }
 
@@ -279,8 +277,6 @@ body {
 
       span {
         font-size: 22px;
-        
-        
 
         &:first-of-type {
           color: $background;
@@ -303,7 +299,6 @@ body {
       justify-content: space-between;
       margin-top: 40px;
 
-
       .go-back-btn {
         display: flex;
         align-items: center;
@@ -311,7 +306,7 @@ body {
         width: 210px;
 
         @media (max-width: 500px) {
-        width: 150px;
+          width: 150px;
         }
 
         border-color: darken($color: $black, $amount: 10);
@@ -320,7 +315,6 @@ body {
           color: darken($color: $black, $amount: 20);
           font-weight: 500;
           font-weight: 600;
-
         }
 
         &:hover {
@@ -349,7 +343,7 @@ body {
 
         @media (max-width: 500px) {
           width: 150px;
-          }
+        }
       }
     }
   }
@@ -387,8 +381,7 @@ body {
 
       @media (max-width: 400px) {
         width: 200px;
-        }
-      
+      }
     }
 
     .button--white {
@@ -401,7 +394,7 @@ body {
 
       @media (max-width: 400px) {
         width: 200px;
-        }
+      }
     }
 
     .button--text {
