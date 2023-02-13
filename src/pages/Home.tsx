@@ -6,10 +6,13 @@ import Sort from '../components/Sort';
 import Skeleton from '../components/SushiBlock/Skeleton';
 import SushiBlock from '../components/SushiBlock';
 import Pagination from '../components/Pagination';
-import { selectFilter, setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
-import { fetchSushi, selectSushi } from '../redux/slices/sushiSlice';
+
 import NotFound from './NotFound';
 import { useAppDispatch } from '../redux/store';
+import { selectFilter } from '../redux/filter/selectors';
+import { selectSushi } from '../redux/sushi/selectors';
+import { setCategoryId, setCurrentPage } from '../redux/filter/slice';
+import { fetchSushi } from '../redux/sushi/slice';
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch();

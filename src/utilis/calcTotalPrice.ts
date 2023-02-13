@@ -1,4 +1,4 @@
-import { CartItem } from './../redux/slices/cartSlice';
+import { CartItem } from './../redux/cart/types';
 
 export const calcTotalPrice = (items: CartItem[]) => {
   let total = items.reduce((sum, obj) => {
@@ -6,6 +6,4 @@ export const calcTotalPrice = (items: CartItem[]) => {
   }, 0);
   let totalPrice = Math.floor(total * 100) / 100;
   return totalPrice;
-
-  
 };
